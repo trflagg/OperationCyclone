@@ -13,15 +13,18 @@ define(['backbone',
     template: _.template(template),
 
     initialize: function() {
+      this.render();
+
       var provinces = this.model.get('provinces');
       provinces.each(function(province) {
         var newCell = new CellView({
           model: province,
-          id: province.get('id') + 'cell'
-        })
-      });
+          id: province.get('id') + 'cell',
+          tagName: 'tr'
+        });
+        this.$el.append(newCell.el);
+      }, this);
 
-      this.render();
     },
 
     render: function() {
