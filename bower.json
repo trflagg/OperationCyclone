@@ -1,0 +1,18 @@
+{
+  "name": "OperationCyclone",
+  "version": "0.0.0",
+  "homepage": "https://github.com/trflagg/OperationCyclone",
+  "authors": [
+    "Taylor Flagg <trflagg@gmail.com>"
+  ],
+  "description": "Because an unconventional war requires unconventional weapons...",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
