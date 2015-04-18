@@ -5,7 +5,7 @@ define([
 
   '../models/gameModel',
 
-  'text!../../svg/Map.svg'
+  'text!../../svg/Map2.svg'
 ], function(
   SVG,
   svgImport,
@@ -28,7 +28,7 @@ define([
       var draw = SVG('drawing');
       draw.svg(map)
 
-      var group = SVG.get('Group');
+      var group = SVG.get('Map');
       group.each(function() {
           this.fill('#FF0000').stroke({color: '#000', width: 5})
       });

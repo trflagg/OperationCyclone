@@ -18,6 +18,7 @@ define(['backbone',
     },
 
     $svg: function() {
+      console.log(this.model.get('id'));
       return SVG.get(this.model.get('id'));
     },
 
