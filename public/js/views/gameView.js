@@ -21,6 +21,7 @@ define([
     initialize: function() {
       this.showMap();
       this.model = new GameModel();
+      this.listenTo(this.model, 'change', this.gameModelChanged);
     },
 
     showMap: function() {
@@ -32,6 +33,10 @@ define([
           this.fill('#FF0000').stroke({color: '#000', width: 5})
       });
     },
+
+    gameModelChanged: function(e) {
+      $("#selected_province_name").html(e.get('selected').get('id'));
+    }
 
   })
 

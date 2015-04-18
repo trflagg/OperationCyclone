@@ -17,7 +17,9 @@ define(['backbone',
         'Herat',
         'Ghowr',
         'Oruzgan'
-      ]
+      ],
+
+      selected: null
     },
 
     initialize: function() {
@@ -34,7 +36,12 @@ define(['backbone',
     },
 
     setSelected: function(province) {
-      console.log(province.id);
+      this.set('selected', province);
+      selected = this.provinces.find(function(search_province) {
+        return search_province.get('selected');
+      })
+      if (selected) {selected.set('selected', false)};
+      province.set('selected', true);
     }
   });
 

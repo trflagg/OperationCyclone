@@ -24,7 +24,8 @@ define(['backbone',
     render: function() {
       var influence = this.model.get('influence');
       var color = influence > .5 ? '#0000FF' : '#FF0000'
-      this.$svg().fill(color);
+      var stroke = this.model.get('selected') ? '5' : '2'
+      this.$svg().fill(color).stroke({width: stroke});
     },
 
     gameModel: function() {
