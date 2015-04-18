@@ -21,18 +21,20 @@ define(['backbone',
     },
 
     initialize: function() {
-
       this.provinces = new Backbone.Collection([], {
         model: ProvinceModel
       });
       _.each(this.get('province_ids'), function(id) {
         var new_province = new ProvinceModel({
-          id: id
+          id: id,
+          gameModel: this
         })
         this.provinces.add(new_province);
       }, this);
+    },
 
-
+    setSelected: function(province) {
+      console.log(province.id);
     }
   });
 

@@ -7,7 +7,8 @@ define(['backbone',
 
     initialize: function() {
       this.view = new ProvinceView({
-        model: this
+        model: this,
+        gameModel: this.gameModel
       });
       this.set('influence', Math.random());
 

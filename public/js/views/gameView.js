@@ -25,14 +25,13 @@ define([
 
     showMap: function() {
       var draw = SVG('drawing');
-        draw.svg(map)
+      draw.svg(map)
 
-        var group = SVG.get('Group');
-        group.each(function() {
-            this.fill('#FF0000').stroke({color: '#000', width: 5})
-        });
+      var group = SVG.get('Group');
+      group.each(function() {
+          this.fill('#FF0000').stroke({color: '#000', width: 5})
+      });
     },
-
 
   })
 

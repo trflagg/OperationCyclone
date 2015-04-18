@@ -9,6 +9,11 @@ define(['backbone',
     initialize: function() {
       if (this.model) {
         this.listenTo(this.model, 'change', this.render);
+
+        var _this = this
+        this.$svg().on('click', function() {
+          _this.gameModel().setSelected(_this.model);
+        })
       }
     },
 
@@ -20,6 +25,10 @@ define(['backbone',
       var influence = this.model.get('influence');
       var color = influence > .5 ? '#0000FF' : '#FF0000'
       this.$svg().fill(color);
+    },
+
+    gameModel: function() {
+      return this.model.get('gameModel')
     }
   });
 

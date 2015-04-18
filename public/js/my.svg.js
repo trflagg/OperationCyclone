@@ -2119,7 +2119,6 @@
   SVG.extend(SVG.Element, {
     // Bind given event to listener
     on: function(event, listener) {
-      console.dir('event',event)
       SVG.on(this.node, event, listener)
 
       return this
