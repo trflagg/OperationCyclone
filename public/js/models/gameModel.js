@@ -39,21 +39,21 @@ define(['backbone',
     },
 
     initialize: function() {
-      this.provinces = new Backbone.Collection([], {
+      this.set('provinces', new Backbone.Collection([], {
         model: ProvinceModel
-      });
+      }));
       _.each(this.get('province_ids'), function(id) {
         var new_province = new ProvinceModel({
           id: id,
           gameModel: this
         })
-        this.provinces.add(new_province);
+        this.get('provinces').add(new_province);
       }, this);
     },
 
     setSelected: function(province) {
       this.set('selected', province);
-      selected = this.provinces.find(function(search_province) {
+      selected = this.get('provinces').find(function(search_province) {
         return search_province.get('selected');
       })
       if (selected) {selected.set('selected', false)};

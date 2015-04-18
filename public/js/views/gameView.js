@@ -3,6 +3,8 @@ define([
   'svg.import',
   './svgView',
 
+  './tableView',
+
   '../models/gameModel',
 
   'text!../../svg/Map2.svg'
@@ -10,6 +12,8 @@ define([
   SVG,
   svgImport,
   SVGView,
+
+  TableView,
 
   GameModel,
 
@@ -21,6 +25,7 @@ define([
     initialize: function() {
       this.showMap();
       this.model = new GameModel();
+      this.createTable();
       this.listenTo(this.model, 'change', this.gameModelChanged);
     },
 
@@ -33,6 +38,13 @@ define([
       group.each(function() {
           this.fill('#FF0000').stroke({color: '#FFF', width: 2})
       });
+    },
+
+    createTable: function() {
+      this.tableView = new TableView({
+        el: $("#table"),
+        model: this.model
+      })
     },
 
     gameModelChanged: function(e) {
