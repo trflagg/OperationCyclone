@@ -26,4 +26,16 @@ require(['svg', 'svg.import', 'text!../svg/Map.svg']
 
     var draw = SVG('drawing')
     draw.svg(map)
+
+    var element = SVG.get('Helmand')
+    element.fill('#FF0000').stroke({color: '#000', width: 5})
+    var group = SVG.get('Group');
+    group.each(function() {
+        this.mouseover(function() {
+            this.fill('#0000FF');
+        });
+        this.mouseout(function() {
+            this.fill("#FFF");
+        });
+    })
 });
