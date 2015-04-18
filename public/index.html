@@ -4,15 +4,37 @@
         <meta charset="utf-8" />
         <title>Operation Cyclone by hi-scor.es</title>
         <style type="text/css">
+        body {
+            background: #000;
+        }
+        #table {
+            width: 500px;
+            height: 700px;
+            border: 1px solid white;
+            float: left;
+        }
+        #right {
+            float: left;
+        }
+        #commands {
+            border: 1px solid white;
+            width: 500px;
+            height: 350px;
+        }
         #drawing {
-            width: 1000px;
-            height: 1000px;
+            width: 500px;
+            height: 340px;
+            padding: 5px;
+            padding-left: 40px;
         }
         </style>
     </head>
     <body>
-    <h3 id="selected_province_name"></h3>
-    <div id="drawing"></div>
+    <div id="table"></div>
+    <div id="right">
+        <div id="drawing"></div>
+        <div id="commands"></div>
+    </div>
     <script language="javascript" data-main="js/main.js" src="bower_components/requirejs/require.js"></script>
     </body>
 </html>

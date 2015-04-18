@@ -29,8 +29,9 @@ define([
       draw.svg(map)
 
       var group = SVG.get('Map');
+      group.scale(0.4, 0.4);
       group.each(function() {
-          this.fill('#FF0000').stroke({color: '#000', width: 5})
+          this.fill('#FF0000').stroke({color: '#FFF', width: 2})
       });
     },
 

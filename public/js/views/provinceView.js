@@ -18,15 +18,14 @@ define(['backbone',
     },
 
     $svg: function() {
-      console.log(this.model.get('id'));
       return SVG.get(this.model.get('id'));
     },
 
     render: function() {
       var influence = this.model.get('influence');
-      var color = influence > .5 ? '#0000FF' : '#FF0000'
-      var stroke = this.model.get('selected') ? '5' : '2'
-      this.$svg().fill(color).stroke({width: stroke});
+      var color = influence > .5 ? '#0069A4' : '#ED0021'
+      var stroke = this.model.get('selected') ? '7' : '2'
+      this.$svg().fill(color).stroke({width: stroke, color: '#FFF'});
     },
 
     gameModel: function() {
