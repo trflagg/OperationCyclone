@@ -3,10 +3,18 @@ require.config({
         "text" : '../bower_components/requirejs-text/text',
         'svg': '../bower_components/svg.js/dist/svg',
         'svg.parser': '../bower_components/svg.parser.js/svg.parser.min',
-        'svg.import': '../bower_components/svg.import.js/svg.import.min'
+        'svg.import': '../bower_components/svg.import.js/svg.import.min',
+        'jquery': '../bower_components/jquery/dist/jquery',
+        'jquery-svg': '../bower_components/jquery-svg/jquery.svg',
+        'backbone': '../bower_components/backbone/backbone',
+        'underscore': '../bower_components/underscore/underscore'
     }
 
     , shim: {
+        // 'backbone': {
+        //     deps: ['underscore']
+        // },
+
         'svg': {
             exports: 'SVG'
         },
@@ -15,25 +23,30 @@ require.config({
         },
         'svg.import': {
             deps: ['svg', 'svg.parser']
+        },
+        'jquery-svg': {
+            deps: ['jquery']
+        },
+        "backbone": {
+            deps: ["jquery", "underscore"],
+            exports: "Backbone"
         }
     }
 });
 
-require(['svg', 'svg.import', 'text!../svg/Map.svg']
-, function(SVG,
-    svgImport,
-    map) {
-
-    var draw = SVG('drawing')
-    draw.svg(map)
-
-    var group = SVG.get('Group');
-    group.each(function() {
-        this.fill('#FF0000').stroke({color: '#000', width: 5})
+require([
+  'svg',
+  'svg.import',
+  'jquery',
+  'underscore',
+  'backbone',
+  'views/gameView'], function(
+  SVG,
+  svgImport,
+  jquery,
+  _,
+  Backbone,
+  GameView) {
+    gameView = new GameView({
     });
-    group.each(function() {
-        this.on('click', function() {
-            this.fill('#0000FF');
-        });
-    })
 });
