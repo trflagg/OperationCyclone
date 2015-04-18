@@ -11,7 +11,7 @@ define([
   svgImport,
   SVGView,
 
-  gameModel,
+  GameModel,
 
   map
 ) {
@@ -20,7 +20,7 @@ define([
 
     initialize: function() {
       this.showMap();
-      this.model = new gameModel();
+      this.model = new GameModel();
     },
 
     showMap: function() {

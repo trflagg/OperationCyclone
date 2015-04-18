@@ -7,12 +7,8 @@ define(['backbone',
 
   gameModel = Backbone.Model.extend({
 
-    initialize: function() {
-      this.provinces = new Backbone.Collection([], {
-        model: ProvinceModel
-      });
-
-      var province_ids = [
+    defaults: {
+      province_ids: [
         'Kandahar',
         'Zabol',
         'Helmand',
@@ -22,12 +18,20 @@ define(['backbone',
         'Ghowr',
         'Oruzgan'
       ]
-      _.each(province_ids, function(id) {
+    },
+
+    initialize: function() {
+
+      this.provinces = new Backbone.Collection([], {
+        model: ProvinceModel
+      });
+      _.each(this.get('province_ids'), function(id) {
         var new_province = new ProvinceModel({
           id: id
         })
         this.provinces.add(new_province);
       }, this);
+
 
     }
   });
