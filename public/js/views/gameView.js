@@ -2,19 +2,25 @@ define([
   'svg',
   'svg.import',
   './svgView',
+
+  '../models/gameModel',
+
   'text!../../svg/Map.svg'
 ], function(
   SVG,
   svgImport,
   SVGView,
+
+  gameModel,
+
   map
 ) {
 
   var gameView = SVGView.extend({
-    id: 'gameView',
 
     initialize: function() {
       this.showMap();
+      this.model = new gameModel();
     },
 
     showMap: function() {
