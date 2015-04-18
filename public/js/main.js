@@ -1,7 +1,7 @@
 require.config({
     paths: {
         "text" : '../bower_components/requirejs-text/text',
-        'svg': '../bower_components/svg.js/dist/svg',
+        'svg': './my.svg',
         'svg.parser': '../bower_components/svg.parser.js/svg.parser.min',
         'svg.import': '../bower_components/svg.import.js/svg.import.min',
         'jquery': '../bower_components/jquery/dist/jquery',
@@ -11,9 +11,6 @@ require.config({
     }
 
     , shim: {
-        // 'backbone': {
-        //     deps: ['underscore']
-        // },
 
         'svg': {
             exports: 'SVG'
@@ -30,23 +27,17 @@ require.config({
         "backbone": {
             deps: ["jquery", "underscore"],
             exports: "Backbone"
+        },
+        "underscore": {
+            deps: ["jquery"]
         }
     }
 });
 
 require([
-  'svg',
-  'svg.import',
-  'jquery',
-  'underscore',
-  'backbone',
   'views/gameView'], function(
-  SVG,
-  svgImport,
-  jquery,
-  _,
-  Backbone,
-  GameView) {
+  GameView
+  ) {
     gameView = new GameView({
     });
 });
