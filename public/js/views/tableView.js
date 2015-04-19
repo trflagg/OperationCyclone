@@ -20,7 +20,8 @@ define(['backbone',
         var newCell = new CellView({
           model: province,
           id: province.get('id') + 'cell',
-          tagName: 'tr'
+          tagName: 'li',
+          className: 'cell'
         });
         this.$el.append(newCell.el);
       }, this);
