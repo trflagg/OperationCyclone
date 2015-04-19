@@ -4,6 +4,7 @@ define([
   './svgView',
 
   './tableView',
+  './commandView',
 
   '../models/gameModel',
 
@@ -14,6 +15,7 @@ define([
   SVGView,
 
   TableView,
+  CommandView,
 
   GameModel,
 
@@ -26,6 +28,7 @@ define([
       this.showMap();
       this.model = new GameModel();
       this.createTable();
+      this.createCommands();
       this.listenTo(this.model, 'change', this.gameModelChanged);
     },
 
@@ -43,6 +46,13 @@ define([
     createTable: function() {
       this.tableView = new TableView({
         el: $("#table"),
+        model: this.model
+      })
+    },
+
+    createCommands: function() {
+      this.commandView = new CommandView({
+        el: $("#commands"),
         model: this.model
       })
     },
