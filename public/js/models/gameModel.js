@@ -63,7 +63,7 @@ define(['backbone',
 
     play: function() {
       this.set('playing', true);
-      this.interval = setInterval(_.bind(this.gameLoop, this), 250);
+      this.interval = setInterval(_.bind(this.gameLoop, this), 1000);
     },
 
     pause: function() {
@@ -72,7 +72,9 @@ define(['backbone',
     },
 
     gameLoop: function() {
-      console.log(new Date());
+      this.get('provinces').each(function(province) {
+        province.gameLoop();
+      })
     }
 
 

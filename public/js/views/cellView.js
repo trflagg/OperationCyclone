@@ -11,8 +11,8 @@ define(['backbone',
     template: _.template(template),
 
     initialize: function() {
-
       this.render();
+      this.listenTo(this.model, 'change', this.render);
     },
 
     render: function() {

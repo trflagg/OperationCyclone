@@ -21,6 +21,14 @@ define(['backbone',
 
       this.set('rebel_army_size', _.random(5000, 20000))
       this.set('rebel_arms_level', _.random(1, 3))
+    },
+
+    gameLoop: function() {
+      var comm_army = this.get('communist_army_size');
+      var rebel_army = this.get('rebel_army_size');
+
+      var comm_deaths = _.random(1, 500) * (comm_army / rebel_army);
+      this.set('communist_army_size', Math.round(comm_army - comm_deaths));
     }
   });
 
