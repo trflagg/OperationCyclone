@@ -13,23 +13,27 @@ define(['backbone',
     template: _.template(template),
 
     initialize: function() {
-      this.render();
+      // this.render();
 
       var provinces = this.model.get('provinces');
-      provinces.each(function(province) {
+      provinces.each(function(province, i) {
         var newCell = new CellView({
           model: province,
           id: province.get('id') + 'cell',
           tagName: 'li',
           className: 'cell'
         });
-        this.$el.append(newCell.el);
+        if (i < 15) {
+          this.$el.append(newCell.el);
+        } else {
+          $('#second_table').append(newCell.el);
+        }
       }, this);
 
     },
 
     render: function() {
-      this.$el.html(this.template({}));
+      // this.$el.html(this.template({}));
 
       return this;
     }
