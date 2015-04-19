@@ -1,8 +1,17 @@
 
 <p><%- id %></p>
 <table>
-  <tr>
-    <td>influence:</td>
-    <td><%= Math.round(influence * 100) %>%</td>
+  <tr class="communist">
+    <td>Size:</td>
+    <td style="text-align: right;"><%= withComma(communist_army_size) %></td>
+    <td>Level:</td>
+    <td><%= communist_arms_level %></td>
   </tr>
+  <tr class="rebel">
+    <td>Size:</td>
+    <td style="text-align: right;"><%= withComma(rebel_army_size) %></td>
+    <td>Level:</td>
+    <td><%= rebel_arms_level %></td>
+  </tr>
+</table>
 </table>
