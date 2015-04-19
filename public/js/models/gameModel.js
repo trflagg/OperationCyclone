@@ -1,9 +1,11 @@
 define(['backbone',
   'underscore',
-  './provinceModel'
+  './provinceModel',
+  '../gameFSM'
 ], function(Backbone,
   _,
-  ProvinceModel) {
+  ProvinceModel,
+  GameFSM) {
 
   gameModel = Backbone.Model.extend({
 
@@ -45,6 +47,9 @@ define(['backbone',
         })
         this.get('provinces').add(new_province);
       }, this);
+
+      this.fsm = new GameFSM(this);
+      this.fsm.startup();
     },
 
     setSelected: function(province) {

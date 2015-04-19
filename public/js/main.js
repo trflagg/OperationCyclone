@@ -7,7 +7,8 @@ require.config({
         'jquery': '../bower_components/jquery/dist/jquery',
         'jquery-svg': '../bower_components/jquery-svg/jquery.svg',
         'backbone': '../bower_components/backbone/backbone',
-        'underscore': '../bower_components/underscore/underscore'
+        'underscore': '../bower_components/underscore/underscore',
+        'javascript-state-machine': '../bower_components/javascript-state-machine/state-machine'
     }
 
     , shim: {
