@@ -63,11 +63,19 @@ define(['backbone',
 
     play: function() {
       this.set('playing', true);
+      this.interval = setInterval(_.bind(this.gameLoop, this), 250);
     },
 
     pause: function() {
+      clearInterval(this.interval);
       this.set('playing', false);
+    },
+
+    gameLoop: function() {
+      console.log(new Date());
     }
+
+
   });
 
   return gameModel;
