@@ -54,11 +54,13 @@ define([
       this.commandView = new CommandView({
         el: $("#commands"),
         model: this.model
-      })
+      });
     },
 
-    gameModelChanged: function(e) {
-      $("#selected_province_name").html(e.get('selected').get('id'));
+    gameModelChanged: function(model) {
+      if (model.get('selected')) {
+        $("#selected_province_name").html(model.get('selected').get('id'));
+      }
     }
 
   })

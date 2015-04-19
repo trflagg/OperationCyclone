@@ -5,10 +5,12 @@ define(['javascript-state-machine']
         this.model = model;
     };
 
-    gameFSM.prototype.onpaused = function(event, from, to) {
+    gameFSM.prototype.onenterpaused = function(event, from, to) {
+        this.model.pause();
     };
 
-    gameFSM.prototype.onrunning = function(event, from, to) {
+    gameFSM.prototype.onenterrunning = function(event, from, to) {
+        this.model.play();
     };
 
     // attach FSM
@@ -17,8 +19,8 @@ define(['javascript-state-machine']
 
         , events: [
             { name: 'startup',      from: 'none',           to: 'paused'}
-          , { name: 'go',           from: 'paused',         to: 'running'}
-          , { name: 'pause',      from: 'running',         to: 'paused'}
+          , { name: 'toggle',       from: 'paused',         to: 'running'}
+          , { name: 'toggle',      from: 'running',         to: 'paused'}
         ]
     });
 

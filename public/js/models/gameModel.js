@@ -59,6 +59,14 @@ define(['backbone',
       })
       if (selected) {selected.set('selected', false)};
       province.set('selected', true);
+    },
+
+    play: function() {
+      this.set('playing', true);
+    },
+
+    pause: function() {
+      this.set('playing', false);
     }
   });
 
