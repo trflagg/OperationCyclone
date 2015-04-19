@@ -17,6 +17,8 @@ define(['backbone',
 
     render: function() {
       this.$el.html(this.template(this.model.attributes));
+      var color = this.model.get('influence') > .5 ? '#0069A4' : '#ED0021'
+      this.$el.css('border-color', color);
       return this;
     }
   });

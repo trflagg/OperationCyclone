@@ -20,7 +20,7 @@ define(['backbone',
         var newCell = new CellView({
           model: province,
           id: province.get('id') + 'cell',
-          tagName: 'li',
+          tagName: 'div',
           className: 'cell'
         });
         if (i < 15) {
@@ -31,12 +31,6 @@ define(['backbone',
       }, this);
 
     },
-
-    render: function() {
-      // this.$el.html(this.template({}));
-
-      return this;
-    }
   });
 
   return tableView;
